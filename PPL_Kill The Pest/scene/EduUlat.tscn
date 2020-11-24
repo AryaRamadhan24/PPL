@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://element/increment 2/pploosssssaa.png" type="Texture" id=1]
+
+[node name="EduUlat" type="Node2D"]
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 539.965, 300.051 )
+scale = Vector2( 0.307841, 0.241791 )
+texture = ExtResource( 1 )

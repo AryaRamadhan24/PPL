@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://element/pilih level 2.png" type="Texture" id=1]
 [ext_resource path="res://element/pilih level 1.png" type="Texture" id=2]
@@ -8,8 +8,10 @@
 [ext_resource path="res://element/level 1.png" type="Texture" id=6]
 [ext_resource path="res://element/level 3.png" type="Texture" id=7]
 [ext_resource path="res://element/point.png" type="Texture" id=8]
+[ext_resource path="res://script/Level Menu.gd" type="Script" id=9]
 
 [node name="Level Menu" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 540.156, 299.981 )
@@ -72,3 +74,4 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="Level 1" to="." method="_on_Level_1_pressed"]
