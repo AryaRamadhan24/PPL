@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://element/background.png" type="Texture" id=1]
 [ext_resource path="res://element/about.png" type="Texture" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://element/help.png" type="Texture" id=9]
 [ext_resource path="res://element/tanaman.png" type="Texture" id=10]
 [ext_resource path="res://script/Main Menu.gd" type="Script" id=11]
+[ext_resource path="res://element/no.png" type="Texture" id=12]
+[ext_resource path="res://element/pop up exit.png" type="Texture" id=13]
+[ext_resource path="res://element/yes.png" type="Texture" id=14]
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource( 11 )
@@ -31,6 +34,7 @@ scale = Vector2( 0.170741, 0.126973 )
 texture = ExtResource( 10 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 983.346, 44.0639 )
 scale = Vector2( 0.0451422, 0.0359619 )
 texture = ExtResource( 4 )
@@ -90,6 +94,37 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pop up exit" type="Sprite" parent="."]
+visible = false
+position = Vector2( 548.442, 405.79 )
+scale = Vector2( 0.212284, 0.212284 )
+texture = ExtResource( 13 )
+
+[node name="btn_yes" type="TextureButton" parent="pop up exit"]
+margin_left = -1304.63
+margin_top = 202.967
+margin_right = -402.635
+margin_bottom = 519.967
+texture_normal = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_no" type="TextureButton" parent="pop up exit"]
+margin_left = 404.679
+margin_top = 202.967
+margin_right = 1306.68
+margin_bottom = 519.967
+texture_normal = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="button/help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="button/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="button/about" to="." method="_on_about_pressed"]
+[connection signal="button_up" from="button/exit" to="." method="_on_exit_button"]
+[connection signal="button_up" from="pop up exit/btn_yes" to="." method="_exit_yes"]
+[connection signal="button_up" from="pop up exit/btn_no" to="." method="_exit_no"]
