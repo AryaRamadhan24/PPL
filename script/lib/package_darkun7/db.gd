@@ -57,7 +57,7 @@ func get_level_score(lvl):
 func get_mob_limit(lvl):
 	lvl = lvl-1
 	var result = get_score_data()[lvl][2]
-	print(result," will spawning soon...")
+	#print(result," will spawning soon...")
 	return result
 
 func set_score(args):
