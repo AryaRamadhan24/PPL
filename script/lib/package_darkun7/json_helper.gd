@@ -1,7 +1,7 @@
 extends Node
 
 var default_pemain = {
-			na = "Tester", #nama
+			na = "Guest",
 			lv = 1
 		} setget , get_pemain
 var default_score = [

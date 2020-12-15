@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://element/background.png" type="Texture" id=1]
 [ext_resource path="res://script/Play Menu.gd" type="Script" id=2]
@@ -6,6 +6,17 @@
 [ext_resource path="res://element/back.png" type="Texture" id=4]
 [ext_resource path="res://element/input entry name.png" type="Texture" id=5]
 [ext_resource path="res://element/play.png" type="Texture" id=6]
+[ext_resource path="res://element/font/Bubblegum.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://element/input.stylebox" type="StyleBox" id=8]
+
+[sub_resource type="Theme" id=1]
+LineEdit/colors/ = Color( 0, 0, 0, 1 )
+LineEdit/icons/ = null
+LineEdit/styles/ = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 7 )
 
 [node name="Play Menu" type="Node2D"]
 script = ExtResource( 2 )
@@ -27,6 +38,21 @@ texture = ExtResource( 3 )
 position = Vector2( 545.372, 294.926 )
 scale = Vector2( 0.152303, 0.131233 )
 texture = ExtResource( 5 )
+
+[node name="username" type="TextEdit" parent="."]
+margin_left = 331.0
+margin_top = 272.0
+margin_right = 760.0
+margin_bottom = 312.0
+theme = SubResource( 1 )
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/mark_color = Color( 0, 0, 0, 1 )
+text = "Pemain"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="button" type="Node2D" parent="."]
 position = Vector2( 541.587, 301.05 )

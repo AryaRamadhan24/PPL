@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Db="*res://script/lib/package_darkun7/db.gd"
+Global="*res://script/lib/package_darkun7/db.gd"
 
 [display]
 

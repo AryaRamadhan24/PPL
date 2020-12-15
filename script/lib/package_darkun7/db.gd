@@ -7,13 +7,20 @@ onready var Helper  = preload("res://script/lib/package_darkun7/json_helper.gd")
 var player setget set_player, get_player
 var score setget set_score, get_score
 
+var pdirection setget set_pd, get_pd
+var crouch setget set_crouch, get_crouch
+
 func _ready():
+	set_pd(1)
+	set_crouch(false)
 	set_player(DB.readJSON("pemain"))
 	set_score(DB.readJSON("score"))
 
 func get_player_data():
+	_ready()
 	return get_player()
 func get_score_data():
+	_ready()
 	return get_score()
 
 func get_username():
@@ -61,3 +68,12 @@ func set_player(args):
 	player = args
 func get_player():
 	return player
+func set_pd(args):
+	pdirection = args
+func get_pd():
+	return pdirection
+
+func set_crouch(args):
+	crouch = args
+func get_crouch():
+	return crouch

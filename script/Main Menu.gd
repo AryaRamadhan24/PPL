@@ -5,10 +5,13 @@ var pop_up_quit = false
 func _ready():
 	pop_up_quit = false
 	toggle_popup_quit(false)
-	
+	$Sprite2/score.text = str(Global.get_total())
 
 func _on_play_pressed():
-	get_tree().change_scene("res://scene/Play Menu.tscn")
+	if Global.get_username() == "Guest":
+		get_tree().change_scene("res://scene/Play Menu.tscn")
+	else:
+		get_tree().change_scene("res://scene/Level Menu.tscn")
 	pass # Replace with function body.
 
 func _on_help_pressed():
