@@ -1,0 +1,208 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://element/increment 2/run2.png" type="Texture" id=1]
+[ext_resource path="res://element/point.png" type="Texture" id=2]
+[ext_resource path="res://element/increment 2/pplosssssssssssssssssssssssssss.png" type="Texture" id=3]
+[ext_resource path="res://element/increment 2/pploosssssaa.png" type="Texture" id=4]
+[ext_resource path="res://element/increment 2/pplossssss.png" type="Texture" id=5]
+[ext_resource path="res://element/increment 2/pplosssssssssssssssssssssssssssssssssss.png" type="Texture" id=6]
+[ext_resource path="res://element/increment 2/pplossssssssssssssss.png" type="Texture" id=7]
+[ext_resource path="res://element/increment 2/pplossssssssssssssssssssssssssssss.png" type="Texture" id=8]
+[ext_resource path="res://element/increment 2/run3.png" type="Texture" id=9]
+[ext_resource path="res://element/increment 2/pplosssssssss.png" type="Texture" id=10]
+[ext_resource path="res://element/increment 2/run0.png" type="Texture" id=11]
+[ext_resource path="res://element/increment 2/run4.png" type="Texture" id=12]
+[ext_resource path="res://element/increment 2/run5.png" type="Texture" id=13]
+[ext_resource path="res://element/increment 2/run1.png" type="Texture" id=14]
+[ext_resource path="res://scene/player.gd" type="Script" id=15]
+[ext_resource path="res://element/player/crouch_2.png" type="Texture" id=16]
+[ext_resource path="res://scene/Level/Level 1.gd" type="Script" id=17]
+[ext_resource path="res://element/player/crouch_3.png" type="Texture" id=18]
+[ext_resource path="res://element/player/crouch_1.png" type="Texture" id=19]
+[ext_resource path="res://element/font/Bubblegum.ttf" type="DynamicFontData" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18557.7, 6121.91 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 500
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1598.43, 1105.19 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 445.273, 1187.1 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "crouch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "idle_crouch",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 36.9136
+height = 100.981
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource( 17 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 542.605, 304.392 )
+scale = Vector2( 0.30699, 0.238924 )
+texture = ExtResource( 8 )
+
+[node name="tanah" type="Sprite" parent="background"]
+position = Vector2( -1.69714, 918.016 )
+scale = Vector2( 1.00207, 0.921799 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background/tanah"]
+position = Vector2( -27.3066, 30.8574 )
+scale = Vector2( 0.308, 0.218 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/tanah/StaticBody2D"]
+position = Vector2( 76.9873, 16.6094 )
+scale = Vector2( 0.308, 0.218 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="awan3" type="Sprite" parent="background"]
+position = Vector2( 1288.07, -568.574 )
+scale = Vector2( 0.25961, 0.387022 )
+texture = ExtResource( 10 )
+
+[node name="awan4" type="Sprite" parent="background"]
+position = Vector2( -1564.71, -7.0105 )
+scale = Vector2( 0.169709, 0.168946 )
+texture = ExtResource( 7 )
+
+[node name="awan2" type="Sprite" parent="background"]
+position = Vector2( -432.177, 175.416 )
+scale = Vector2( 0.102207, 0.104257 )
+texture = ExtResource( 7 )
+
+[node name="pohon1" type="Sprite" parent="background"]
+position = Vector2( -668.263, -230.324 )
+scale = Vector2( 0.413121, 0.605201 )
+texture = ExtResource( 3 )
+offset = Vector2( -1462.34, 403.694 )
+
+[node name="pohon5" type="Sprite" parent="background"]
+position = Vector2( 2009.94, -238.226 )
+scale = Vector2( 0.413121, 0.605201 )
+texture = ExtResource( 3 )
+offset = Vector2( -1462.34, 403.694 )
+
+[node name="pohon2" type="Sprite" parent="background"]
+position = Vector2( -592.687, 325.112 )
+scale = Vector2( 0.23201, 0.296936 )
+texture = ExtResource( 3 )
+
+[node name="pohon3" type="Sprite" parent="background"]
+position = Vector2( 94.0813, 5.02258 )
+scale = Vector2( 0.424864, 0.625651 )
+texture = ExtResource( 3 )
+
+[node name="pohon4" type="Sprite" parent="background"]
+position = Vector2( 677.152, 416.04 )
+scale = Vector2( 0.167096, 0.213528 )
+texture = ExtResource( 3 )
+
+[node name="awan" type="Sprite" parent="background"]
+position = Vector2( -925.626, -872.175 )
+scale = Vector2( 0.25961, 0.387022 )
+texture = ExtResource( 10 )
+
+[node name="pause" type="Sprite" parent="background"]
+position = Vector2( 50.7802, -1124.17 )
+scale = Vector2( 0.205643, 0.208678 )
+texture = ExtResource( 6 )
+
+[node name="point" type="Sprite" parent="background"]
+position = Vector2( 1484.52, -1135.03 )
+scale = Vector2( 0.128081, 0.167783 )
+texture = ExtResource( 2 )
+
+[node name="score" type="Label" parent="background/point"]
+margin_left = -1194.0
+margin_top = -324.0
+margin_right = 407.0
+margin_bottom = 356.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "{SCORE}"
+align = 2
+valign = 1
+autowrap = true
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="edukasi" type="Sprite" parent="background"]
+visible = false
+position = Vector2( -3.87317, -36.1914 )
+scale = Vector2( 1.00295, 1.00632 )
+texture = ExtResource( 4 )
+
+[node name="tembokkiri" type="Sprite" parent="background"]
+position = Vector2( -1790.55, -52.8745 )
+scale = Vector2( 0.0159875, 1.04923 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background/tembokkiri"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/tembokkiri/StaticBody2D"]
+position = Vector2( 115.656, -22.8914 )
+shape = SubResource( 2 )
+
+[node name="tembokkanan" type="Sprite" parent="background/tembokkiri"]
+position = Vector2( 230405, -214.54 )
+scale = Vector2( 4.61822, 0.751426 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background/tembokkiri/tembokkanan"]
+position = Vector2( 0, -668.266 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/tembokkiri/tembokkanan/StaticBody2D"]
+position = Vector2( -1487.32, 759.605 )
+shape = SubResource( 3 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 264.357, 376.482 )
+script = ExtResource( 15 )
+
+[node name="gunpos" type="Position2D" parent="player"]
+position = Vector2( 64.9116, -49.2294 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="player"]
+position = Vector2( -5.49951, 6.09131 )
+scale = Vector2( 0.0659573, 0.0854395 )
+frames = SubResource( 4 )
+animation = "idle_crouch"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( -0.955872, 2.57135 )
+shape = SubResource( 5 )
