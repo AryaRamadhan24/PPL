@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://element/increment 2/run2.png" type="Texture" id=1]
 [ext_resource path="res://element/point.png" type="Texture" id=2]
@@ -24,19 +24,19 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18557.7, 6121.91 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 500
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 20 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 1598.43, 1105.19 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 445.273, 1187.1 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": false,
@@ -48,18 +48,22 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "crouch",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "idle_crouch",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "crouch",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 39.1012
+height = 99.5389
+
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 36.9136
 height = 100.981
 
@@ -148,7 +152,7 @@ margin_left = -1194.0
 margin_top = -324.0
 margin_right = 407.0
 margin_bottom = 356.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -176,7 +180,7 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/tembokkiri/StaticBody2D"]
 position = Vector2( 115.656, -22.8914 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="tembokkanan" type="Sprite" parent="background/tembokkiri"]
 position = Vector2( 230405, -214.54 )
@@ -188,7 +192,7 @@ position = Vector2( 0, -668.266 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/tembokkiri/tembokkanan/StaticBody2D"]
 position = Vector2( -1487.32, 759.605 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="player" type="KinematicBody2D" parent="."]
 position = Vector2( 264.357, 376.482 )
@@ -200,14 +204,26 @@ position = Vector2( 64.9116, -49.2294 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="player"]
 position = Vector2( -5.49951, 6.09131 )
 scale = Vector2( 0.0659573, 0.0854395 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle_crouch"
+
+[node name="Area2D" type="Area2D" parent="player"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2( -0.955872, 2.57135 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
+
+[node name="BomTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+[connection signal="body_entered" from="player/Area2D" to="." method="_on_player_touch_object"]
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_time"]
+[connection signal="timeout" from="BomTimer" to="." method="_on_BomTimer_spawn"]
