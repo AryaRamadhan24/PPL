@@ -15,3 +15,9 @@ func _physics_process(delta):
 func _ready():
 	pass # Replace with function body.
 
+func _on_target_pos():
+	var dir = rand_range(0,1)
+	if(0):
+		motion.x = min(rand_range(225,775)+ACCELERATION, MAX_SPEED)
+	else:
+		motion.x = max(rand_range(225,775)-ACCELERATION, -MAX_SPEED)

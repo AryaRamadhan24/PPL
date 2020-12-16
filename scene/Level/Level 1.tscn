@@ -43,6 +43,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "crouch",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "run",
@@ -51,11 +56,6 @@ animations = [ {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "idle_crouch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "crouch",
 "speed": 5.0
 } ]
 

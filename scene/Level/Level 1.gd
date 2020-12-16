@@ -2,6 +2,7 @@ extends Node2D
 
 const wave = preload("res://element/projectile/wave.tscn")
 const boom = preload("res://element/mob/bom.tscn")
+const explode = preload("res://element/explosion.png")
 const caterpilar = preload("res://element/mob/caterpilar.tscn")
 
 var poin = 0 setget set_poin, get_poin
@@ -56,6 +57,9 @@ func _on_player_touch_object(body):
 	if(body.name == "BOOM" or body.name.left(5)=="@BOOM"):
 		print("hit boom")
 		set_poin(get_poin() -10);
+		body.get_children()[0].texture = explode
+		body.get_children()[3].hide()
+		yield(get_tree().create_timer(0.2), "timeout")
 		body.queue_free()
 
 func set_poin(args):

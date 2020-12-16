@@ -38,6 +38,7 @@ func unlock_lvl(lvl):
 func get_unlocked_lvl():
 	var lvl = get_player_data()["lv"]
 	print("Maximal level now ", lvl)
+	return lvl
 
 func get_total():
 	var accumulated = 0

@@ -59,4 +59,4 @@ func on_crouch_scale():
 	else:
 		$".".scale.x = 1
 		$".".scale.y = 1
-	print("Crouch ",Global.get_crouch())
+	#print("Crouch ",Global.get_crouch())
