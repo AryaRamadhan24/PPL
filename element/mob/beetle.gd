@@ -4,7 +4,7 @@ export var ACCELERATION = 500
 export var MAX_SPEED = 75
 export var FRICTION = 200
 export var WANDER_TARGET_RANGE = 4
-const GRAVITY = 20
+const GRAVITY = 0
 const UP = Vector2(0, -1)
 var direction = Vector2.ZERO
 var motion = Vector2()
@@ -37,22 +37,27 @@ func update_wander():
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
-			$Timer.wait_time = 0.3
+			$Timer.wait_time = 0.2
 			print('idle')
 		WANDER:
 			var dd = rand_range(1,10)
+			var dv = rand_range(1,10)
+			if(dv <5):
+				motion.y -= 6*(rand_range(5, 10))
+			else:
+				motion.y = 8*(rand_range(5, 10))
 			if(dd <5):
 				print("<5")
 				motion.x = rand_range(-10, -50)
-				$caterpilar.flip_h = true
+				$beetle.flip_h = true
 				move_and_slide(motion, Vector2(rand_range(-10, -10),20))
 			else:
 				print("1")
 				motion.x = rand_range(10, 50)
-				$caterpilar.flip_h = false
+				$beetle.flip_h = false
 				move_and_slide(motion, Vector2(rand_range(10, 10),20))
 			#print('wander', $".".position, "::", motion.x)
-			$Timer.wait_time = 0.6
+			$Timer.wait_time = 0.4
 
 func accelerate_towards_point(point, delta):
 	direction = global_position.direction_to(point)
@@ -62,7 +67,6 @@ func accelerate_towards_point(point, delta):
 		pass
 	else:
 		pass
-
 
 func _on_Timer_timeout():
 	update_wander()

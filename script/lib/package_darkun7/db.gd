@@ -53,6 +53,8 @@ func get_level_score(lvl):
 	print("Load score for stage ",lvl+1," with value ",result)
 	return result
 func set_level_score(lvl, score):
+	if score <0:
+		score = 0
 	DB.appendJSON([lvl,1,score], "score")
 
 func get_level_star(lvl):
