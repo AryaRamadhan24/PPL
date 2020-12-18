@@ -12,7 +12,8 @@ var motion = Vector2()
 
 func _physics_process(delta):
 	motion.y += GRAVITY
-	motion = move_and_slide(motion, UP)
+	motion = move_and_slide(motion, UP, false, 4, 0.785398, false)
+	self.transform.origin.x = self.position.x
 	
 func _ready():
 	pass # Replace with function body.
