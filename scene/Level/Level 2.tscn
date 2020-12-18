@@ -76,7 +76,7 @@ height = 99.5389
 radius = 36.9136
 height = 100.981
 
-[node name="1" type="Node2D"]
+[node name="2" type="Node2D"]
 script = ExtResource( 17 )
 
 [node name="background" type="Sprite" parent="."]
@@ -175,6 +175,29 @@ position = Vector2( 0, -668.266 )
 position = Vector2( -1487.32, 759.605 )
 shape = SubResource( 3 )
 
+[node name="tembokatas" type="Sprite" parent="background"]
+position = Vector2( -169.803, -1239.37 )
+scale = Vector2( 1.11828, 0.0931497 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background/tembokatas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/tembokatas/StaticBody2D"]
+position = Vector2( 115.656, -22.8914 )
+shape = SubResource( 2 )
+
+[node name="tembokkanan" type="Sprite" parent="background/tembokatas"]
+position = Vector2( 230405, -214.54 )
+scale = Vector2( 4.61822, 0.751426 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background/tembokatas/tembokkanan"]
+position = Vector2( 0, -668.266 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/tembokatas/tembokkanan/StaticBody2D"]
+position = Vector2( -1487.32, 759.605 )
+shape = SubResource( 3 )
+
 [node name="point" type="Sprite" parent="."]
 position = Vector2( 998.338, 33.2061 )
 scale = Vector2( 0.0393196, 0.0400874 )
@@ -222,11 +245,11 @@ position = Vector2( -0.955872, 2.57135 )
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 5.0
 autostart = true
 
 [node name="BomTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 autostart = true
 
 [node name="pause_btn" type="TextureButton" parent="."]
