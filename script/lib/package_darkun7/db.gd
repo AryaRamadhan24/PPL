@@ -52,6 +52,16 @@ func get_level_score(lvl):
 	var result = get_score_data()[lvl][1]
 	print("Load score for stage ",lvl+1," with value ",result)
 	return result
+func set_level_score(lvl, score):
+	DB.appendJSON([lvl,1,score], "score")
+
+func get_level_star(lvl):
+	lvl = lvl-1
+	var result = get_score_data()[lvl][3]
+	print("Load Star for stage ",lvl+1," with value ",result)
+	return result
+func set_level_star(lvl, star):
+	DB.appendJSON([lvl,3,star], "score")
 
 func get_mob_limit(lvl):
 	lvl = lvl-1

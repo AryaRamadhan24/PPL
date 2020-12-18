@@ -5,7 +5,7 @@
 [ext_resource path="res://element/font/Bubblegum.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 39.8794
+radius = 47.2631
 height = 0.0
 
 [sub_resource type="DynamicFont" id=2]
@@ -27,7 +27,7 @@ position = Vector2( -0.840881, -0.420456 )
 shape = SubResource( 1 )
 
 [node name="BomHilang" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 7.0
 autostart = true
 
 [node name="hilang" type="Label" parent="."]

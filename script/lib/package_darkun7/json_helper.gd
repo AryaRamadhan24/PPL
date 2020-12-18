@@ -5,9 +5,9 @@ var default_pemain = {
 			lv = 1
 		} setget , get_pemain
 var default_score = [
-	   [1, 0, 10],
-	   [2, 0, 15],
-	   [3, 0, 20],
+	   [1, 0, 10, 0],
+	   [2, 0, 15, 0],
+	   [3, 0, 20, 0],
 	] setget , get_score
 
 func get_pemain():

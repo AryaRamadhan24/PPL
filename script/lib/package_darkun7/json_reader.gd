@@ -29,6 +29,21 @@ func pushJSON(key : Array, value : Array, path):
 	saveJSON(session, path)
 	return true
 
+func appendJSON(value , path):
+	var added = false
+	var new_session = []
+	var session     = readJSON(path)
+	for n in session:
+		if value[0] == n[0]:
+			n[0] = value[0]
+			n[value[1]] = value[2]
+			added = true
+		new_session.append(n)
+	#if(!added):
+	#	new_session.append([value[0],value[1]])
+	saveJSON(new_session, path)
+	return true
+
 func saveJSON(data, path):
 	var file = File.new()
 	var target = Helper.path4(path)

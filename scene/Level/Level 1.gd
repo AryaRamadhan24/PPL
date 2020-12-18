@@ -19,7 +19,7 @@ func _process(delta):
 		spawn_wave(Global.get_pd())
 		pass
 	var mob_limit = Global.get_mob_limit(level)
-	if(get_spawned_mob() == mob_limit):
+	if(get_spawned_mob() == mob_limit+2):
 		check_result()
 
 func spawn_wave(direction):
@@ -75,7 +75,7 @@ func _on_spawn_time():
 	var mob_limit = Global.get_mob_limit(level)
 	if get_spawned_mob() <= mob_limit:
 		spawn_mob(rand_range(225,775))
-		set_spawned_mob(get_spawned_mob()+1)
+	set_spawned_mob(get_spawned_mob()+1)
 
 
 func _on_BomTimer_spawn():
@@ -85,7 +85,7 @@ func _on_BomTimer_spawn():
 	level = int($".".name)
 
 func spawn_mob(x):
-	print("Spawn Time")
+	print("Spawn Time ", get_spawned_mob())
 	match level:
 		1:      #caterpilar
 			var mob = caterpilar.instance()
@@ -100,33 +100,52 @@ func spawn_mob(x):
 			pass
 
 func check_result():
+	var star = 0
 	var mob_limit = Global.get_mob_limit(level)
+	Global.set_level_score(level, get_poin())
 	match level:
 		1:      #caterpilar
 			if(get_poin()<50):
+				star = 0
 				print('fail')
 			elif(get_poin()<=60):
+				star = 1
 				print("*1")
 			elif(get_poin()<=80):
+				star = 2
 				print("*2")
 			elif(get_poin()>80):
+				star = 3
 				print("*3")
 		2:      #flies
 			if(get_poin()<100):
+				star = 0
 				print('fail')
 			elif(get_poin()<=110):
+				star = 1
 				print("*1")
 			elif(get_poin()<=130):
+				star = 2
 				print("*2")
 			elif(get_poin()>130):
+				star = 3
 				print("*3")
 		3:      #mushroom
 			if(get_poin()<150):
+				star = 0
 				print('fail')
 			elif(get_poin()<=160):
+				star = 1
 				print("*1")
 			elif(get_poin()<=180):
+				star = 2
 				print("*2")
 			elif(get_poin()>180):
+				star = 3
 				print("*3")
+	if(level>1 && star>0):
+		if(Global.get_unlocked_lvl()<level+1):
+			Global.unlock_lvl(level+1)
+		if(Global.get_level_star(level)<star):
+			Global.set_level_star(level, star)
 
