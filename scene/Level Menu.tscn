@@ -21,13 +21,13 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 500
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -91,7 +91,7 @@ margin_left = 129.0
 margin_top = 330.0
 margin_right = 300.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -149,7 +149,7 @@ margin_left = 451.369
 margin_top = 334.373
 margin_right = 622.369
 margin_bottom = 388.373
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -200,7 +200,7 @@ margin_left = 782.911
 margin_top = 334.373
 margin_right = 953.911
 margin_bottom = 388.373
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -228,7 +228,7 @@ margin_left = -1460.0
 margin_top = -324.0
 margin_right = 407.0
 margin_bottom = 356.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -242,10 +242,10 @@ __meta__ = {
 }
 
 [node name="back" type="TextureButton" parent="."]
-margin_left = 842.0
-margin_top = 546.0
-margin_right = 1012.0
-margin_bottom = 595.0
+margin_left = 891.0
+margin_top = 529.0
+margin_right = 1046.0
+margin_bottom = 586.0
 texture_normal = ExtResource( 11 )
 expand = true
 __meta__ = {

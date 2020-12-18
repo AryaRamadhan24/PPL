@@ -5,21 +5,62 @@ const boom = preload("res://element/mob/bom.tscn")
 const explode = preload("res://element/explosion.png")
 const caterpilar = preload("res://element/mob/caterpilar.tscn")
 
+const b1 = preload("res://element/bintang 1.png")
+const b2 = preload("res://element/bintang 2.png")
+const b3 = preload("res://element/bintang 3.png")
+
 var poin = 0 setget set_poin, get_poin
 var spawned_mob = 0 setget set_spawned_mob, get_spawned_mob
+var pause_state = false
 var level
 
 func _ready():
 	level = int($".".name)
+	$window/pause.visible = false
+	pass
+
+func _on_pause_pressed():
+	get_tree().paused = true
+	pause_state = !pause_state
+	$window/pause.visible = true
+
+func _on_pause_resume_pressed():
+	get_tree().paused = false
+	pause_state = !pause_state
+	$window/pause.visible = false
+func _on_pause_exit_pressed():
+	get_tree().paused = false
+	get_tree().change_scene("res://scene/Main Menu.tscn")
+
+func try():
+	get_tree().paused = false
+	match str(level):
+		"1":
+			get_tree().change_scene("res://scene/EduUlat.tscn")
+		"2":
+			get_tree().change_scene("res://scene/EduBeetle.tscn")
+		"3":
+			get_tree().change_scene("res://scene/EduMite.tscn")
+
+func next():
+	get_tree().paused = false
+	if level+1<3:
+		match str(level+1):
+			"2":
+				get_tree().change_scene("res://scene/EduBeetle.tscn")
+			"3":
+				get_tree().change_scene("res://scene/EduMite.tscn")
+	else:
+		get_tree().change_scene("res://scene/Level Menu.tscn")
 	pass
 
 func _process(delta):
-	$background/point/score.text = str(get_poin())
+	$point/score.text = str(get_poin())
 	if Input.is_action_just_pressed("ui_select"):
 		spawn_wave(Global.get_pd())
 		pass
 	var mob_limit = Global.get_mob_limit(level)
-	if(get_spawned_mob() == mob_limit+2):
+	if(get_spawned_mob() == mob_limit+2 && ($window/win.visible == false or $window/lose.visible == false)):
 		check_result()
 
 func spawn_wave(direction):
@@ -143,6 +184,21 @@ func check_result():
 			elif(get_poin()>180):
 				star = 3
 				print("*3")
+	if(star == 0):
+		get_tree().paused = true
+		pause_state = true
+		$window/lose.show()
+	else:
+		get_tree().paused = true
+		pause_state = true
+		$window/win.show()
+		match star:
+			1:
+				$window/win/star.texture = b1
+			2:
+				$window/win/star.texture = b2
+			3:
+				$window/win/star.texture = b3
 	if(level>1 && star>0):
 		if(Global.get_unlocked_lvl()<level+1):
 			Global.unlock_lvl(level+1)
