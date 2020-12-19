@@ -65,6 +65,10 @@ func _process(delta):
 	var mob_limit = Global.get_mob_limit(level)
 	if(get_spawned_mob() == mob_limit+2 && ($window/win.visible == false or $window/lose.visible == false)):
 		check_result()
+	if(get_poin()<0):
+		get_tree().paused = true
+		pause_state = true
+		$window/lose.show()
 
 func spawn_wave(direction):
 	var corrector

@@ -11,6 +11,8 @@ var pdirection = 1 setget set_pd, get_pd
 var crouch = false setget set_crouch, get_crouch
 
 func _ready():
+	#DB.createJSON("pemain") #Hapus komentar untuk reset database
+	#DB.createJSON("score")  #Hapus komentar untuk reset database
 	set_player(DB.readJSON("pemain"))
 	set_score(DB.readJSON("score"))
 
